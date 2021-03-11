@@ -20,7 +20,9 @@ export default {
     },
     methods: {
         addItem() {
-            this.$emit("add-todo", this.text)
+            this.$store.dispatch("todos/AddTodo", {
+                title: this.text
+            })
         }
     }
 }

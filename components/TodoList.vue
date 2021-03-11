@@ -1,17 +1,19 @@
 <template>
-    <div class="list">
-        <ul  v-if="todos.length">
-            <TodoItem 
-            v-for="(item,i) in todos" :key="item.id"
-            v-bind:todo="item"
-            v-bind:index="i"
-            v-bind:bgColor="bgColor"
-            v-bind:nameTodo="nameTodo"
-            v-on:remove-todo="remove"
-            />
-        </ul>
-        <p v-else>No todo</p>
-    </div>
+  <div class="list">
+    <ul v-if="todos.length">
+      <TodoItem
+        v-for="(item,i) in todos"
+        :key="item.id"
+        :todo="item"
+        :index="i"
+        :bg-color="bgColor"
+        :name-todo="nameTodo"
+      />
+    </ul>
+    <p v-else>
+      No todo
+    </p>
+  </div>
 </template>
 
 
@@ -20,18 +22,13 @@
 import TodoItem from '@/components/TodoItem.vue'
 
 export default {
-    data(){
-        return {
-        }
-    },
-    methods: {
-        remove(id){
-            this.$emit("remove-todo", id);
-        }
-    },
-    props: ['todos', 'bgColor', "nameTodo"],
     components: {
         TodoItem
+    },
+    props: ['todos', 'bgColor', "nameTodo"],
+    data() {
+        return {
+        }
     }
 }
 </script>

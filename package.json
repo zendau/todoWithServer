@@ -9,7 +9,7 @@
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint": "npm run lint:js",
-    "serve": "node api/index.js"
+    "serve": "nodemon --watch api --exec \"nuxt\""
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
@@ -17,9 +17,11 @@
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.8.3",
     "express": "^4.17.1",
+    "mysql2": "^2.2.5",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.7",
-    "nuxt": "^2.14.12"
+    "nuxt": "^2.14.12",
+    "sequelize": "^6.5.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",

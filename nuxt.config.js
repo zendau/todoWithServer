@@ -32,6 +32,7 @@ export default {
         // https://go.nuxtjs.dev/eslint
         '@nuxtjs/eslint-module'
     ],
+    watch: ['api'],
 
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
@@ -43,8 +44,16 @@ export default {
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {},
+    serverMiddleware: {
+        '/api': '~/api'
+    },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
+        extend(config, ctx) {
+            if (ctx.isDev) {
+                config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+            }
+        }
     }
 }
